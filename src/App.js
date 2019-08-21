@@ -10,7 +10,11 @@ export default class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    this.setState({ count: 1 });
+    this.setState(prevState => {
+      return {
+        count: prevState.count + 1
+      };
+    });
   }
 
   render() {
