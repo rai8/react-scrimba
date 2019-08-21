@@ -1,22 +1,23 @@
 import React, { Component } from "react";
+import "./App.css";
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: false
+      count: 0
     };
+    this.handleClick = this.handleClick.bind(this);
   }
+  handleClick() {
+    this.setState({ count: 1 });
+  }
+
   render() {
-    let logStatus;
-    if (this.state.isLoggedIn === true) {
-      logStatus = "in";
-    } else {
-      logStatus = "out";
-    }
     return (
       <div>
-        <h1>You are currently logged {logStatus}</h1>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.handleClick}>Increment</button>
       </div>
     );
   }
