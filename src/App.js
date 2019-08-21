@@ -1,13 +1,23 @@
-import React from "react";
-import TodoItem from "./components/TodoItem";
-import "./App.css";
-import todosData from "./components/todosData";
+import React, { Component } from "react";
 
-function App() {
-  const todoItems = todosData.map(item => (
-    <TodoItem key={item.id} item={item} />
-  ));
-  return <div className="todo-list">{todoItems}</div>;
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoggedIn: true
+    };
+  }
+  render() {
+    let logStatus;
+    if (this.state.isLoggedIn === true) {
+      logStatus = "in";
+    } else {
+      logStatus = "out";
+    }
+    return (
+      <div>
+        <h1>You are currently logged {logStatus}</h1>
+      </div>
+    );
+  }
 }
-
-export default App;
